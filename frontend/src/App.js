@@ -23,7 +23,7 @@ function App() {
     checkAuth()
   },[checkAuth])
 
-  console.log({authUser});
+  // console.log({authUser});
   if(!authUser && isCheckingAuth) return(
     <div className="flex items-center justify-center h-screen">
       <Loader className="size-10 animate-spin"/>
@@ -32,7 +32,9 @@ function App() {
   
 
   return (
-    <div>
+    <div data-theme="dark">
+      {/* <button className="btn btn-primary">Test Button</button> */}
+
       <Navbar/>
       <Routes>
         <Route path="/" element={ authUser ? <HomePage/> : <Navigate to="/login"/>}/>

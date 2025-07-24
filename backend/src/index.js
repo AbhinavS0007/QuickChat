@@ -8,12 +8,19 @@ import cors from "cors"
 
 const app = express();
 dotenv.config();
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000', // ✅ must match exactly, no slash
   credentials: true                // ✅ allow cookies and auth headers
 }));
+
+
 
 app.use(express.urlencoded({ extended: true }));
 
